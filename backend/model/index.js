@@ -21,6 +21,6 @@ const BookSchema = new Schema({
     thumbnail: String
 });
 
-const Livro = mongoose.model('Livro', BookSchema);
+const livro = mongoose.model('livro', BookSchema);
 
-module.exports = Livro;
+module.exports = livro;
