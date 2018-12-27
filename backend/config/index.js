@@ -10,7 +10,8 @@
 const config = {
     connectionString: process.env.DATABASE_CONNECTION_STRING,
     port: process.env.port || 8000,
-    mongodbString: 'mongodb://linxdb:linx123@ds213832.mlab.com:13832/linx-test',
+    mongodbString: 'mongodb://indtdb:indt21*!@ds233452.mlab.com:33452/test-indt'
+    // mongodbString: 'mongodb://linxdb:linx123@ds213832.mlab.com:13832/linx-test',
 };
 
 module.exports = config;

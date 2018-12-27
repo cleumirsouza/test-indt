@@ -12,7 +12,7 @@
  /**
   * @description Endpoint to Post and Get all products
   */
- router.route('/products')
+ router.route('/livros')
   .get((req, res, next) => {
       // Get all products in the database.
       Product.find((error, products) => {
@@ -27,7 +27,7 @@
   * @description Endpoint to get product by id.
   * 
   */
- router.route('/product/:product_id')
+ router.route('/livros/:livro_id')
     .get((req, res) => {
         // Find livro by livro_id
         Livro.findById(req.params.product_id, (error, livro) => {
