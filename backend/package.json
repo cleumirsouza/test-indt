@@ -1,7 +1,7 @@
 {
     "author": "Cleumir Souza",
-    "description": "A node project based on linx test",
-    "name": "test-linx",
+    "description": "A node project based on INDT test",
+    "name": "test-indt",
     "version": "0.0.1",
     "private": true,
     "main": "server.js",
