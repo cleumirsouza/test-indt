@@ -1,0 +1,32 @@
+{
+    "author": "Cleumir Souza",
+    "description": "A node project based on linx test",
+    "name": "test-linx",
+    "version": "0.0.1",
+    "private": true,
+    "main": "server.js",
+    "scripts": {
+        "dev": "nodemon app.js",
+        "start": "node app.js",
+        "watch": "nodemon app.js"
+    },
+    "dependencies": {
+        "bluebird": "^3.5.1",
+        "body-parser": "~1.18.3",
+        "cookie-parser": "^1.4.3",
+        "cors": "^2.8.4",
+        "express": "~4.16.3",
+        "mongodb": "^3.1.1",
+        "mongoose": "^5.2.7",
+        "morgan": "~1.9.0"
+    },
+    "devDependencies": {
+        "eslint": "^4.15.0",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.8.0",
+        "nodemon": "^1.18.3"
+    },
+    "bug": {
+        "url": "git issues"
+    }
+}
