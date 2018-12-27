@@ -11,15 +11,16 @@ const { Schema } = mongoose;
 /**
  * Define Livro schema with attributes
  */
-const LivroSchema = new Schema({
+const BookSchema = new Schema({
     name: String,
     author: String,
     category: String,
-    pagesQtd: String,
+    qtdPages: String,
     status: String,
-    price: String
+    price: String,
+    thumbnail: String
 });
 
-const Livro = mongoose.model('Livro', LivroSchema);
+const Livro = mongoose.model('Livro', BookSchema);
 
 module.exports = Livro;
