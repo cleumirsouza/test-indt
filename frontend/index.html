@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vitrine Teste INDT</title>
+        <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    </head>
+    <body>
+        <div class="header">
+            <span>Teste INDT</span>
+        </div>
+        <div class="update-items">
+            <span>
+                <button class="btn-cadastro">Atualizar Cadastro</button>
+            </span>
+        </div>
+        <div class="header-content">
+            <span class="header-book">Você visitou:</span>
+            <span class="header-recomendation">e talvez interesse por:</span>
+        </div>
+        <div id="content" class="row"> 
+            <div id="book" class="collumn">
+            </div>
+            <div id="carousel" class="collumn carousel">
+            </div>
+            <div id="pagination" class="collumn pagination">
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+        <script src="./src/utils/handleData.js"></script>
+        <script src="./src/constants/cardType.js"></script>
+        <script src="./src/templates/cardTemplate.js"></script>
+        <script src="./src/services/httpRequest.js"></script>
+        <script src="./src/services/book.service.js"></script>
+        <script src="./src/app.js"></script>
+    </body>
+</html>
