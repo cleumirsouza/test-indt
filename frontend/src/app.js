@@ -4,6 +4,11 @@
  * Date: 28/12/2018
  */
 
+document.getElementById('btnVitrine').innerText = 'Atualizar Cadastro';
+
+/**
+ * Method fired when user change view.
+ */
 onUpdateBooks = () => {
     let showBooks = document.getElementById("showBooks");
     let carousel = document.getElementById("showcase");
@@ -11,9 +16,12 @@ onUpdateBooks = () => {
     if (carousel.style.display === 'none') {
         carousel.style.display = 'block';
         showBooks.style.display = 'none';
+        document.getElementById('btnVitrine').innerText = 'Atualizar Cadastro';
+        loadData();
     } else {
         carousel.style.display = 'none';
         showBooks.style.display = 'block';
+        document.getElementById('btnVitrine').innerText = 'Vitrine'
         createTable();
     }
 }

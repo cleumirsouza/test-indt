@@ -18,7 +18,6 @@ This test consists on development of an backend application using nodejs and an 
 ### Run
 - `npm install` install dependencies
 - `npm run dev` run in development mode
-- `npm run prod` run in production mode
 
 # Frontend
 
@@ -29,6 +28,7 @@ This test consists on development of an backend application using nodejs and an 
 |   ├── constants           # Generic constants from app
 |   ├── services            # Services to all endpoints
 |   └── templates           # Templates for components or generic views.
+|   └── utils               # Contains generic methods like handleData.
 ├── dist                    # Contain min files genereted by webpack
 ├── index.html              # Index from aplication
 ├── package.json            # Contains script and dependecies necessaries to project

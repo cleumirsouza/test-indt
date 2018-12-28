@@ -1,3 +1,8 @@
+/**
+ * Author: Cleumir Souza
+ * Description: File contains controller to handle table template.
+ * Date: 28/12/2018
+ */
 
 let currentId = '';
 
@@ -34,6 +39,7 @@ editItem = async () => {
  */
 newOpenModal = () => {
     currentId = '';
+    cleanModal();
 }
 
 /**

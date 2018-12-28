@@ -1,3 +1,8 @@
+/**
+ * Author: Cleumir Souza
+ * Description: File contains methods to handle modal.
+ * Date: 28/12/2018
+ */
 
 let items = [...document.getElementById('open-modal').getElementsByTagName('input')];
 

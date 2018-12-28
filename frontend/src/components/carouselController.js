@@ -1,3 +1,9 @@
+/**
+ * Author: Cleumir Souza
+ * Description: File contains methods to handle carousel.
+ * Date: 28/12/2018
+ */
+
 let start = (data)=> {
 
     /**
@@ -17,7 +23,7 @@ let start = (data)=> {
         if (state.playActive) pauseCarousel();
         moveCarousel('right');
     }
-    
+
     /**
      * Method that handle event to left side.
      */
@@ -30,28 +36,28 @@ let start = (data)=> {
      * Make carousel animate and move position to left or right
      */
     moveCarousel = (side)=> {
-        let items = document.getElementsByClassName('item'), 
-            i = 0, 
+        let items = document.getElementsByClassName('item'),
+            i = 0,
             currentItem = '',
             newActive = state.active;
-            
+
         if(side === 'right') {
             state.active = (newActive + 1) % state.items.length;
             state.direction = 'right';
-            
+
             for (i = 0; items.length > i; i++){
                 currentItem = document.getElementsByClassName('item')[i];
                 currentItem.classList.add('right-enter-active');
-            } 
+            }
         } else {
             newActive--;
             state.active = newActive < 0 ? state.items.length - 1 : newActive;
             state.direction = 'left';
-            
+
             for (i = 0; items.length > i; i++){
                 currentItem = document.getElementsByClassName('item')[i];
                 currentItem.classList.add('left-enter-active');
-            } 
+            }
         }
 
         timerTransition = setTimeout(() => {
@@ -66,7 +72,7 @@ let start = (data)=> {
     bookComponent = ()=> {
         document.getElementById('book').innerHTML = '';
         let card = '';
-        
+
         if (data.item) {
             card = templateCard(type.ITEM, data.item);
         }
@@ -99,7 +105,7 @@ let start = (data)=> {
                     ${element}
                 </div>
             </div>`;
-    
+
         let root = document.getElementById('carousel');
         root.insertAdjacentHTML('beforeend', context);
         root.insertAdjacentHTML('beforeend', `<span class="blank-slash"><button class="arrow-right" onClick='moveRight()'></button></span>`);

@@ -1,3 +1,8 @@
+/**
+ * Author: Cleumir Souza
+ * Description: File contains template to create an generic table.
+ * Date: 28/12/2018
+ */
 
 createTable = async () => {
     let books = await getAllBooks('http://localhost:8000/api/livros');
@@ -43,7 +48,6 @@ createTable = async () => {
             for (let j = 0; j < col.length; j++) {
                 let td = document.createElement("td");
                 if ((col.length - 1) === j) {
-                    // add
                     td.innerHTML = `<div class="actions">
                                     <span>
                                         <i id=${books[i]._id} onclick="deleteItem()" class="material-icons action-delete">delete</i>
