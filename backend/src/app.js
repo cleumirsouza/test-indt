@@ -9,6 +9,7 @@ const express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     books = require('./routes/books'),
+    book = require('./routes/book'),
     app = express(),
     cors = require('cors');
 
@@ -20,8 +21,8 @@ app.use(cookieParser());
 // Set cors
 app.use(cors());
 
-// add routes
 app.use('/api', books);
+app.use('/api', book);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
