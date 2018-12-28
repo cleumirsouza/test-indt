@@ -11,7 +11,7 @@ This test consists on development of an backend application using nodejs and an 
 │   ├── models              # Models from database
 │   ├── routes.js           # Define routes and middlewares here
 │   └── signals             # Callback scope to identify shutdown api by signal
-├── tests                   # Testing
+├── tests                   # Tests
 ├── package.json            # Contains script and dependecies necessaries to project
 └── app.js                  # App starting point
 ```
@@ -23,3 +23,18 @@ This test consists on development of an backend application using nodejs and an 
 # Frontend
 
 ### Structure
+```
+├── assets                  # Folder with css, imgs and others
+|──src
+|   ├── constants           # Generic constants from app
+|   ├── services            # Services to all endpoints
+|   └── templates           # Templates for components or generic views.
+├── dist                    # Contain min files genereted by webpack
+├── index.html              # Index from aplication
+├── package.json            # Contains script and dependecies necessaries to project
+└── webpack.config          # Setup and compile files necessaries to app.
+```
+### Run
+- `npm install` install dependencies
+- `npm run server` run in development mode
+
