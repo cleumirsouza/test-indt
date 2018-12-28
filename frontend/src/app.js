@@ -1,122 +1,110 @@
 /**
  * Author: Cleumir Souza
  * @description: File to start application, get data and render components.
- * Date: 08/13/2018
+ * Date: 28/12/2018
  */
 
-let start = (data)=> {
 
-    /**
-     * Object that contain informations about the current state of the carousel.
-     */
-    let state = {
-        items: data.recommendation,
-        active: 0,
-        direction: '',
-        playActive: 0
+
+onUpdateBooks = () => {
+    let books = document.getElementById("updateBooks");
+    let carousel = document.getElementById("showcase");
+
+    if (carousel.style.display === 'none') {
+        carousel.style.display = 'block';
+        books.style.display = 'none';
+    } else {
+        carousel.style.display = 'none';
+        books.style.display = 'block';
+        createTable();
+
+       
+//         //Month Arrays -----------------------------------------------------------
+// var monthsEnglish = ["January","February","March","April", "May", "June", "July", "August", "September","October","November","December"];
+// var monthsSpanish = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre ","Octubre ","Noviembre","Diciembre"];
+// //Static content ---------------------------------------------------------
+// document.write("<table border='1' width='200'>")
+// document.write("<tr><th>Month #</th><th>English</th><th>Spanish</th></tr>");
+// //Dynamic content --------------------------------------------------------
+// for(var i=0; i<13;i++)
+// {
+// 	document.write("<tr><td>" + (i+1) + "</td><td>" + monthsEnglish[i] + "</td><td>" + monthsSpanish[i] +"</td></tr>");
+// }
+// //Static content  --------------------------------------------------------
+// document.write("</table>")
     }
-
-    /**
-     * Method that handle event to right side.
-     */
-    moveRight = ()=> {
-        if (state.playActive) pauseCarousel();
-        moveCarousel('right');
-    }
-    
-    /**
-     * Method that handle event to left side.
-     */
-    moveLeft = ()=> {
-        if (state.playActive) pauseCarousel();
-        moveCarousel('left');
-    }
-
-    /**
-     * Make carousel animate and move position to left or right
-     */
-    moveCarousel = (side)=> {
-        let items = document.getElementsByClassName('item'), 
-            i = 0, 
-            currentItem = '',
-            newActive = state.active;
-            
-        if(side === 'right') {
-            state.active = (newActive + 1) % state.items.length;
-            state.direction = 'right';
-            
-            for (i = 0; items.length > i; i++){
-                currentItem = document.getElementsByClassName('item')[i];
-                currentItem.classList.add('right-enter-active');
-            } 
-        } else {
-            newActive--;
-            state.active = newActive < 0 ? state.items.length - 1 : newActive;
-            state.direction = 'left';
-            
-            for (i = 0; items.length > i; i++){
-                currentItem = document.getElementsByClassName('item')[i];
-                currentItem.classList.add('left-enter-active');
-            } 
-        }
-
-        timerTransition = setTimeout(() => {
-            carouselComponent();
-            clearTimeout(timerTransition);
-        }, 400);
-    }
-
-    /**
-     * Component to create card to product.
-     */
-    productComponent= ()=> {
-        document.getElementById('book').innerHTML = '';
-        let card = '';
-        
-        if (data.item) {
-            card = templateCard(type.PRODUCT, data.item);
-        }
-
-        document.getElementById('book').insertAdjacentHTML('beforeend', card);
-    }
-
-    /**
-     * Function to render carousel based in active item.
-     */
-    carouselComponent = ()=> {
-        document.getElementById('carousel').innerHTML = '';
-        let level, element = '';
-
-        for (var i = state.active - 2; i < state.active + 3; i++) {
-            var index = i;
-
-            if (i < 0) {
-                index = state.items.length + i;
-            } else if (i >= state.items.length) {
-                index = i % state.items.length;
-            }
-
-            level = state.active - i;
-            element += templateCard(type.RECOMENDATION, data.recommendation[index], level);
-        }
-
-        let context = `<div id="items" class="noselect">
-                <button class="arrow-left" onClick='moveLeft()'></button>
-                    ${element}
-                </div>
-            </div>`;
-    
-        let root = document.getElementById('carousel');
-        root.insertAdjacentHTML('beforeend', context);
-        root.insertAdjacentHTML('beforeend', `<span class="blank-slash"><button class="arrow-right" onClick='moveRight()'></button></span>`);
-    }
-
-    // Renders only once by request.
-    productComponent();
-
-    // Render only five cards by events in the carousel.
-    carouselComponent();
 }
+
+createTable = async ()=> {
+    let books = await getAllBooks('http://localhost:8000/api/livros');
+    console.log('load data', books);
+// console.log('testesl', getAllBooks());
+var nOfBooks = books.length;
+
+if(nOfBooks>0){
+    // CREATE DYNAMIC TABLE.
+    var table = document.createElement("table");
+    table.style.width = '50%';
+    table.setAttribute('border', '1');
+    table.setAttribute('cellspacing', '0');
+    table.setAttribute('cellpadding', '5');
+    
+    // retrieve column header ('Name', 'Email', and 'Mobile')
+
+    var col = [
+        'name',
+        'author',
+        'category',
+        'price',
+        'qtdPages',
+        'Actions'
+    ];
+    
+    const tHead = document.createElement("thead");	
+    const hRow = document.createElement("tr");
+    const tBody = document.createElement("tbody");	
+    
+    // Create columns with header.
+    for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");
+            th.innerHTML = col[i];
+            hRow.appendChild(th);
+    }
+    tHead.appendChild(hRow);
+    table.appendChild(tHead);
+    
+    // CREATE TABLE BODY .
+    
+    // ADD COLUMN HEADER TO ROW OF TABLE HEAD.
+    for (let i = 0; i < books.length; i++) {
+    
+        let bRow = document.createElement("tr"); // CREATE ROW FOR EACH RECORD .
+        
+        for (let j = 0; j < col.length; j++) {
+            let td = document.createElement("td");
+            
+            if ((col.length - 1) === j) {
+                td.innerHTML = 'hahahahhaha'
+            } else {
+                td.innerHTML = books[i][col[j]];
+            }
+            bRow.appendChild(td);
+        }
+        
+        tBody.appendChild(bRow)
+
+    }
+    table.appendChild(tBody);	
+    
+    
+    // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+    var divContainer = document.getElementById("updateBooks");
+    divContainer.innerHTML = "";
+    divContainer.appendChild(table);
+    
+}	
+}
+
 
 /**
  * Method to resquest dada from api using async (like promise).
@@ -124,7 +112,7 @@ let start = (data)=> {
 loadData = async ()=> {
     let response = [];
     let books;
-
+    
     // get all books.
     books = await getAllBooks('http://localhost:8000/api/livros');
     console.log('load data', books);
@@ -134,7 +122,8 @@ loadData = async ()=> {
     } else {
         // empty template.
     }
-    
+    currentData = response;
+
     start(response);
 }
 

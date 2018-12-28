@@ -12,26 +12,35 @@
         </div>
         <div class="update-items">
             <span>
-                <button class="btn-cadastro">Atualizar Cadastro</button>
+                <button onclick="onUpdateBooks()" class="btn-cadastro">Atualizar Cadastro</button>
             </span>
         </div>
-        <div class="header-content">
-            <span class="header-book">Você visitou:</span>
-            <span class="header-recomendation">e talvez interesse por:</span>
-        </div>
-        <div id="content" class="row"> 
-            <div id="book" class="collumn">
+        
+        <div id="showcase">
+            <div class="header-content">
+                <span class="header-book">Você visitou:</span>
+                <span class="header-recomendation">e talvez tenha interesse por:</span>
             </div>
-            <div id="carousel" class="collumn carousel">
+            <div id="content" class="row"> 
+                <div id="book" class="collumn">
+                </div>
+                <div id="carousel" class="collumn carousel">
+                </div>
+                <div id="pagination" class="collumn pagination">
+                </div>
             </div>
-            <div id="pagination" class="collumn pagination">
+            <div class="footer">
             </div>
         </div>
-        <div class="footer">
+
+        <div id="updateBooks" class="contentBooks">
+            <h3>teslskdlfjlsfsdjl jsdlf jdslsfjsdlfkj sdlfsjdlf kjsdlfksj</h3>
         </div>
+
         <script src="./src/utils/handleData.js"></script>
         <script src="./src/constants/cardType.js"></script>
-        <script src="./src/templates/cardTemplate.js"></script>
+        <script src="./src/components/cardTemplate.js"></script>
+        <script src="./src/components/carouselController.js"></script>
         <script src="./src/services/httpRequest.js"></script>
         <script src="./src/services/book.service.js"></script>
         <script src="./src/app.js"></script>

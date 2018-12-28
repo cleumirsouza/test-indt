@@ -36,6 +36,11 @@ body {
     font-weight: 600;
 }
 
+.contentBooks {
+    display: none;
+}
+
+
 /* container */
 /* Create two equal columns that floats next to each other */
 .collumn {

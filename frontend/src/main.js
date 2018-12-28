@@ -1,7 +1,7 @@
 
 /**
  * Author: Cleumir Souza
- * Date: 08/08/2018
+ * Date: 28/12/2018
  * @description Starting application in development mode.
  */
 if (process.env.NODE_ENV !== 'production') {

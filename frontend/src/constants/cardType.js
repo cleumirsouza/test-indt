@@ -1,5 +1,5 @@
 // Constants to define card type.
 const type = {
-    ITEM: 'product',
+    ITEM: 'book',
     RECOMENDATION: 'recomendation'
 };
