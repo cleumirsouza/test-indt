@@ -28,25 +28,47 @@ body {
 .btn-cadastro {
     color: white;
     border-radius: 4px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     background: rgb(66, 184, 221);
     width: 12%;
-    height: 40%;
+    padding: 3px;
     font-size: 15px;
     font-weight: 600;
+}
+
+.btn-newItem {
+    color: white;
+    background: green;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 82%;
+    margin-bottom: 32px;
 }
 
 .contentBooks {
     display: none;
 }
 
+/* actions*/
+.actions {
+    text-align: center;
+}
+
+.action-delete {
+    cursor: pointer;
+    color: red;
+}
+
+.action-edit {
+    cursor: pointer;
+    color: green;
+}
 
 /* container */
 /* Create two equal columns that floats next to each other */
 .collumn {
     float: left;
     width: 25%;
-    height: 414px;; 
+    height: 414px;;
 }
 
 /* header */
@@ -85,6 +107,7 @@ body {
     border-color: white;
     border-right-color: #ecf1fb;
     height: 330px;
+    margin-top: 15px;
 }
 
 .pagination {
@@ -110,7 +133,7 @@ body {
     float: left;
     width: 50%;
     padding: 10px;
-    height: 400px; 
+    height: 400px;
 }
 
 /* Clear floats after the columns */
@@ -190,7 +213,7 @@ body {
 
 .card-payment-condition {
     font-size: 1.2rem;
-    font-weight: 600;   
+    font-weight: 600;
 }
 
 .card-img {
@@ -222,11 +245,11 @@ body {
   color: black;
   background-color: #f9fffe;
   position: absolute;
-  transition: height 1s, 
-    width 1s, 
-    left 1s, 
-    margin-top 1s, 
-    line-height 1s, 
+  transition: height 1s,
+    width 1s,
+    left 1s,
+    margin-top 1s,
+    line-height 1s,
     background-color 1s;
 }
 
@@ -267,13 +290,13 @@ body {
 
 .left-enter-active {
   opacity: 0.5;
-  transition: 
+  transition:
     opacity 0.8s,
 }
 
 .right-enter-active {
     opacity: 0.5;
-    transition: 
+    transition:
     opacity 0.8s,
 }
 
@@ -298,4 +321,81 @@ body {
     border-bottom-right-radius: 25px;
     margin-top: -6px;
     padding-right: 1px;
+}
+
+/* modal */
+
+.modal-window {
+    position: fixed;
+    background-color:  rgba(1, 29, 0, 0.38);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    &:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    &>div {
+      width: 60%;
+      height: 70%;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2em;
+      background: #ffffff;
+      color: #333333;
+    }
+  }
+
+.modal-close {
+    color: #aaa;
+    line-height: 50px;
+    font-size: 80%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+    &:hover {
+        color: #000;
+    }
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.item-input {
+    display: grid;
+    margin: 1%;
+}
+
+.lbl-input {
+    color: 066728;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+input {
+    border-color: #545f4c36;
+}
+
+.btn-create {
+    margin-left: 87%;
 }

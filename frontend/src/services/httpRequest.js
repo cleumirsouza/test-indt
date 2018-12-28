@@ -2,12 +2,12 @@
  * Author: Cleumir Souza
  * Description: File contains generic http request.
  * Date: 28/12/2018
- * 
+ *
  * @description: Generic http request
  * @param url - Api endpoint.
  * @param typeRequest - Type of verb like (Get, Post and others).
  */
-request = (url, typeRequest)=> {
+request = (url, typeRequest, param)=> {
     return new Promise(function (resolve, reject) {
         const xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function (e) {
@@ -23,6 +23,12 @@ request = (url, typeRequest)=> {
             reject('timeout');
         }
         xhr.open(typeRequest, url, true);
-        xhr.send();
+        if (param) {
+            //Send the proper header information along with the request
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.send(param);
+        } else {
+            xhr.send();
+        }
     });
 }
